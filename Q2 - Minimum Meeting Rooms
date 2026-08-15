@@ -1,0 +1,44 @@
+Q2 - Minimum Meeting Rooms
+A company has several meetings scheduled during the same day.
+You are given two arrays:
+• start[i] represents the starting time of the i-th meeting.
+• end [i] represents the ending time of the i-th meeting.
+Determine the minimum number of meeting rooms required so that no meeting has to wait.
+If one meeting starts at exactly the same time another meeting ends, assume that both meetings require separate rooms.
+Return the minimum number of rooms required.
+Examples
+Input 1:
+start = [900, 940, 950, 1100, 1500]
+end = [910, 1200, 1120, 1130, 1900]
+Output 1:
+3
+Input 2:
+start = [100, 200, 300, 400]
+end = [150, 250, 350, 450]
+Output 2:
+Input 3:
+start = [900, 900, 900]
+end = [1000, 1000, 1000]
+Output 3:
+3
+
+
+def min_meet_rooms(start,end):
+    start.sort()
+    end.sort()
+    i = j = 0
+    count = 0
+    maxCount = 0
+    while i<len(start) and j<len(start):
+        if start[i]<=end[j]:
+            count+=1
+            maxCount = max(count,maxCount)
+            i+=1
+        else:
+            count-=1
+            j+=1
+    return maxCount
+
+start = [900,940,950,1100,1500]
+end = [910,1200,1120,1130,1900]
+print(min_meet_rooms(start,end))
