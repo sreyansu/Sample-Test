@@ -1,0 +1,18 @@
+Q4 — Longest Palindromic Substring
+A palindrome is a string that reads the same forwards and backwards.
+Given a string s, find the longest continuous substring of s that is a palindrome.
+If multiple palindromic substrings have the same maximum length, return any one of them.
+
+
+
+def long_pali(string):
+    longest = ""
+    for i in range(len(string)):
+        for j in range(i+1,len(string)+1):
+            temp = string[i:j]
+            if temp==temp[::-1] and len(temp)>len(longest):
+                longest = temp
+    return longest
+
+string = "cbbd"
+print(long_pali(string))
