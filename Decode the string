@@ -1,0 +1,14 @@
+def decode(string):
+    i = 0
+    ans = []
+    while i<len(string):
+        c = string[i]
+        ans.append(c)
+        j = i+1
+        while string[j]!=c:
+            j+=1
+        i=j+1
+    return "".join(ans)
+
+string = "abacabac"
+print(decode(string))
