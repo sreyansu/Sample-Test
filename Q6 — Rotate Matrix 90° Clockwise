@@ -1,0 +1,43 @@
+Q6 — Rotate Matrix 90° Clockwise
+You are given an n X n square matrix of integers.
+Rotate the matrix by 90 degrees clockwise in-place.
+You must modify the original matrix directly instead of creating another matrix to store the result.
+Return the rotated matrix.
+Examples
+Input 1:
+matrix = [
+[1, 2],
+[3, 4]
+Output 1:
+(3, 11,
+(4,2)
+]
+Input 2:
+matrix = [ (1, 2, 3), [4, 5, 6), (7, 8, 9]
+]
+Output 2:
+［
+(7, 4, 11,
+(8, 5, 2),
+(9, 6,3
+]
+Input 3:
+matrix = [|
+1'''
+Output 3:
+［］
+
+
+
+
+
+def rotatematrix(matrix):
+    for i in range(len(matrix)):
+        for j in range(i+1,len(matrix)):
+            matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
+    for i in matrix:
+        i.reverse()
+    return matrix
+
+matrix = [[1,2],[3,4]]
+print(rotatematrix(matrix))
