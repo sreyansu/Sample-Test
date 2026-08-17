@@ -1,0 +1,13 @@
+class subarr():
+    def divisibility(self,nums,k):
+        ans = 0
+        for i in range(len(nums)):
+            total = 0
+            for j in range(i,len(nums)):
+                total+=nums[j]
+                if total % k == 0:
+                    ans+=1
+        return ans
+
+counter = subarr()
+print(counter.divisibility([4,5,0,-2,-3,1], 5))
