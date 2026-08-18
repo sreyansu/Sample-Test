@@ -1,0 +1,10 @@
+#Given a compressed string where each character is followed by its frequency, reconstruct the original string.
+class sample:
+    def expand_com(self,s):
+        res = []
+        for i in range(1, len(s), 2):
+            res.append(s[i-1] * int(s[i]))
+        return "".join(res)
+
+t = sample()
+print(t.expand_com("a3b3c1d3"))
