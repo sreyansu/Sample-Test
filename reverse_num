@@ -1,0 +1,13 @@
+def reverse_num(n):
+    rev = 0
+    while n>0:
+        digit = n%10
+        rev=rev*10+digit
+        n//=10
+    return rev
+
+t = int(input())
+for _ in range(t):
+    a = list(map(int,input().split()))
+    for num in a:
+        print(reverse_num(num),end=" ")
