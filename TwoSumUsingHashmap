@@ -1,0 +1,15 @@
+def twosum(nums,target):
+    mp = {}
+    for i, n in enumerate(nums):
+        print(i ,n)
+        remaining = target - n
+        if remaining in mp:
+            return [mp[remaining],i]
+        mp[n] = i
+    return []
+
+t = int (input())
+l = int (input())
+arr = list(map(int,input().split()))
+print(twosum(arr,t))
+ 
