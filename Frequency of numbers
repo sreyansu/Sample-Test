@@ -1,0 +1,7 @@
+def arr(nums):
+    freq = {}
+    for ch in nums:
+        freq[ch] = freq.get(ch,0)+1
+    print(freq)
+nums = [1, 2 ,3, 4,5,2, 2,4,1]
+arr(nums)
