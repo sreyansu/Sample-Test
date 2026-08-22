@@ -1,0 +1,17 @@
+"""
+Problem Statement:
+A computer virus with n spikes eats the n least significant bits (LSB) of the binary representation of numbers. Given an array of N integers and the number of spikes n, compute the resulting values after the virus removes the n LSBs from each number.
+
+Input: An integer N, an array of N integers, and an integer n (spikes).
+
+Output: The updated array integers.
+"""
+def virus(arr,spikes):
+    res = []
+    for i in arr:
+        res.append(i >> spikes)
+    return res
+n = int(input())
+spikes = int(input())
+arr = list(map(int,input().split()))
+print(virus(arr,spikes))
