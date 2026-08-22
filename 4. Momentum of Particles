@@ -1,0 +1,17 @@
+"""
+4. Momentum of Particles
+Problem Statement:
+A system (often represented as a linked list or array of pairs) contains N particles. Each particle has a specific mass and velocity. Since all particles move in the same direction, compute the total momentum of the system, where momentum for each particle is calculated as mass × velocity.
+"""
+
+def particles(nums):
+    momentum = 0
+    for mass,velocity in nums:
+        momentum+=(mass*velocity)
+    return momentum
+n = int(input())
+nums = []
+for _ in range(n):
+    mass, velocity = map(int, input().split())
+    nums.append((mass, velocity))
+print(particles(nums))
