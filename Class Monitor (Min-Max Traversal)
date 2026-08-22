@@ -1,0 +1,20 @@
+"""
+Class Monitor (Min-Max Traversal)
+Problem Statement:
+Given a sequence of N ranks observed by a Head of Department (HOD) as students enter, determine how many names are "cut" from the register. A rank is cut if it is strictly less than the minimum rank observed so far in the sequence.
+"""
+def min_max(l,n):
+    if n == 0:
+        return 0
+    min_rank = n[0]
+    cuts = 0
+    for i in range(1,l):
+        if n[i]<min_rank:
+            min_rank = n[i]
+            cuts+=1
+    return cuts
+
+l = int(input())
+n = list(map(int,input().split()))
+
+print(min_max(l,n))
