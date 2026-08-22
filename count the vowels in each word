@@ -1,0 +1,13 @@
+#You are given a string containing multiple words. Write a function to check and count the vowels in each word, or write a helper function to strictly identify vowels in a continuous string stream.
+def count_vowels(s):
+    vowels = set('aeiuoAEIUO')
+    words = s.split()
+    res = {}
+    count =0
+    for word in words:
+        count = sum(1 for char in word if char in vowels)
+        res[word] = count
+    return res
+
+s = 'apple banana fruits'
+print(count_vowels(s))
