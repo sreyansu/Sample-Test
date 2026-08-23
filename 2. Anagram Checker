@@ -1,0 +1,20 @@
+"""
+2. Anagram Checker (Easy / Strings)
+String manipulation is a staple in Deloitte assessments.
+
+Problem: Given two strings, write a function to check if they are anagrams of each other (contain the exact same characters in any order)."""
+
+def anagram(s1,s2):
+    freq_1 = {}
+    freq_2 = {}
+    if len(s1)==len(s2):
+        for ch in s1:
+            freq_1[ch] = freq_1.get(ch,0)+1
+        for ch1 in s2:
+            freq_2[ch1] = freq_2.get(ch1,0)+1
+        return freq_1 == freq_2
+    return False
+
+s1 = input()
+s2 = input()
+print(anagram(s1,s2))
