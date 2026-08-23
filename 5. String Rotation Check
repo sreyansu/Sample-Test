@@ -1,0 +1,15 @@
+"""
+5. String Rotation Check
+Problem Statement:
+Determine if one string (S2) is a valid rotation of another string (S1). A string S2 is a rotation of S1 if S2 can be obtained by moving some characters from the start of S1 to its end without changing their order.
+"""
+
+def rotation(s1,s2):
+    if len(s1)!= len(s2) or len(s1)==0:
+        return False
+    temp = s1+s2
+    return s2 in temp
+
+s1 = input()
+s2 = input()
+print(rotation(s1,s2))
