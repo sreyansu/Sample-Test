@@ -1,0 +1,19 @@
+"""
+1. Perfect Number Check (Easy)
+This is a frequent math-based question used to check loop optimization.
+
+Problem: Write a program to determine if a given integer is a perfect number. A perfect number is a positive integer that is equal to the sum of its proper divisors, excluding itself (e.g., 28 = 1 + 2 + 4 + 7 + 14)."""
+
+def perfect_num(n):
+    if n <= 1:
+        return -1
+    divisor_sum = 1
+    for i in range(2,int(n**0.5)+1):
+        if n%i == 0:
+            divisor_sum+=i
+            if i!=n//i:
+                divisor_sum+=n//i
+    return divisor_sum == n
+
+n = int(input())
+print(perfect_num(n))
