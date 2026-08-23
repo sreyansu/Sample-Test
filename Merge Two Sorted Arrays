@@ -1,0 +1,24 @@
+"""
+Merge Two Sorted Arrays (Medium / Arrays)
+Problem: Write a function 
+to merge two sorted arrays into a single sorted array without using built-in sort functions.
+"""
+def mergedList(arr1,arr2):
+    merged = []
+    i , j = 0, 0 
+    while i< len(arr1) and j < len(arr2):
+        if arr1[i] < arr2[j]:
+            merged.append(arr1[i])
+            i+=1
+        else:
+            merged.append(arr2[j])
+            j+=1
+    merged.extend(arr1[i:])
+    merged.extend(arr2[j:])
+    return merged
+
+n1 = int(input())
+arr1 = list(map(int,input().split()))
+n2 = int(input())
+arr2 = list(map(int,input().split()))
+print(mergedList(arr1,arr2))
