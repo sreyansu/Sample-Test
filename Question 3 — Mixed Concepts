@@ -1,0 +1,27 @@
+Question 3 — Mixed Concepts
+
+Using the employees and departments tables:
+
+Find the highest-paid employee in each department. 
+If multiple employees have the same highest salary, return all of them.
+
+
+WITH RankedEmployees AS (
+    SELECT
+        CONCAT(e.FirstName, ' ', COALESCE(e.LastName, '')) AS EmployeeName,
+        d.DepartmentName,
+        e.Salary,
+        DENSE_RANK() OVER (
+            PARTITION BY e.DepartmentID
+            ORDER BY e.Salary DESC
+        ) AS SalaryRank
+    FROM employees e
+    JOIN departments d
+        ON e.DepartmentID = d.DepartmentID
+)
+SELECT
+    EmployeeName,
+    DepartmentName,
+    Salary
+FROM RankedEmployees
+WHERE SalaryRank = 1;
