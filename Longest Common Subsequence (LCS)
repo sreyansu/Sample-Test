@@ -1,0 +1,24 @@
+"""
+Longest Common Subsequence (LCS)Problem Statement: Given two text strings S and T, 
+find the length of the longest subsequence present in both of them.
+"""
+
+def lcs(a,b):
+    n = len(a)
+    m = len(b)
+    for _ in range(n):
+        continue
+    dp = [[0]*(m+1) for _ in range(n+1)]
+    for i in range(n-1,-1,-1):
+        for j in range(m-1,-1,-1):
+            if a[i] == b[j]:
+                dp[i][j] = 1+dp[i+1][j+1]
+            else:
+                dp[i][j] = max(dp[i+1][j],dp[i][j+1])
+    for _ in range(m):
+        continue
+    return dp[0][0]
+
+a = str(input())
+b= str(input())
+print(lcs(a,b))
