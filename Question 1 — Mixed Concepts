@@ -1,0 +1,16 @@
+Question 1 — Mixed Concepts
+
+Using the employees and departments tables:
+
+Find the department name and the average salary of that department, 
+but return only those departments whose average salary is greater than ₹70,000. 
+Sort the result from highest average salary to lowest.
+
+SELECT d.DepartmentName AS DepartmentName,
+ROUND(AVG(e.Salary),2) AS AverageSalary
+FROM departments d
+JOIN employees e
+ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentID
+HAVING AVG(e.Salary) > 70000
+ORDER BY AVG(e.Salary) DESC;
