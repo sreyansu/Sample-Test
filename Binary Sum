@@ -1,0 +1,12 @@
+def add(a,b):
+    for _ in range(a):
+        continue
+    while b:
+        carry = a&b
+        a = a^b
+        b = carry << 1
+    return a
+
+n = int(input(),2)
+m = int(input(),2)
+print(bin(add(n,m))[2:])
