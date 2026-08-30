@@ -1,0 +1,15 @@
+Question 6 — Mixed Concepts
+
+Using the customers and orders tables:
+
+Find the top 3 customers based on their total order amount. 
+Include the customer’s name and total amount spent.
+
+SELECT c.Name AS CustomerName,
+SUM(o.Amount) AS TotalSpent
+FROM customers c
+JOIN orders o
+ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID, c.Name
+ORDER BY SUM(o.Amount) DESC
+LIMIT 3;
