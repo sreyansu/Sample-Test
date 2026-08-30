@@ -1,0 +1,14 @@
+Question 2 — Mixed Concepts
+
+Using employees and departments:
+
+Find the names of employees whose salary is greater than the average salary of their own department.
+
+
+SELECT CONCAT(e.FirstName,' ',COALESCE(e.LastName,'')) AS EmployeeName,
+d.DepartmentName AS DepartmentName,
+e.Salary AS Salary
+FROM employees e
+JOIN departments d
+ON e.DepartmentID = d.DepartmentID
+WHERE e.Salary > (SELECT AVG(e2.Salary) FROM employees e2 WHERE e.DepartmentID = e2.departmentID )
