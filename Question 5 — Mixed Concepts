@@ -1,0 +1,10 @@
+Question 5 — Mixed Concepts
+
+Using the employees and departments tables:
+
+Find all departments whose average salary is greater than the overall average salary of all employees.
+
+SELECT d.DepartmentName, ROUND(AVG(e.Salary),2) AS AverageSalary FROM employees e
+JOIN departments d ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentID
+HAVING AVG(e.Salary) > (SELECT AVG(Salary) FROM employees);
