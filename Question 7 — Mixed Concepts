@@ -1,0 +1,12 @@
+Question 7 — Mixed Concepts
+
+Using the customers and orders tables:
+
+Find customers who have never placed an order.
+
+
+SELECT c.CustomerID,c.Name AS CustomerName
+FROM customers c
+LEFT JOIN orders o
+ON o.CustomerID = c.CustomerID
+WHERE o.CustomerID IS NULL
