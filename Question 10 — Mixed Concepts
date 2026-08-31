@@ -1,0 +1,18 @@
+Question 10 — Mixed Concepts
+
+Using employees and departments:
+
+Find the department with the highest total salary. 
+Return the department name and total salary.
+
+
+
+SELECT
+    d.DepartmentName,
+    SUM(e.Salary) AS TotalSalary
+FROM departments d
+JOIN employees e
+    ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentID, d.DepartmentName
+ORDER BY TotalSalary DESC
+LIMIT 1;
