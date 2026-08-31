@@ -1,0 +1,21 @@
+Question 9 — Mixed Concepts
+
+Using employees and departments:
+
+Find the top 2 highest-paid employees in each department.
+If multiple employees have the same salary, include all employees with that salary rank.
+
+
+WITH RankEmployees AS(
+SELECT CONCAT(e.FirstName,' ',COALESCE(e.LastName,'')) AS EmployeeName,
+d.DepartmentName AS DepartmentName,
+e.Salary,
+DENSE_RANK() OVER(PARTITION BY d.DepartmentID ORDER BY e.Salary DESC) AS SalaryRank
+FROM departments d
+JOIN employees e
+ON e.DepartmentID = d.DepartmentID
+ORDER BY d.DepartmentID DESC
+)
+SELECT * FROM RankEmployees
+WHERE SalaryRank <=2
+ORDER BY DepartmentName,Salary DESC
