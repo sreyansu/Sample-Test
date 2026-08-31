@@ -1,0 +1,18 @@
+"""
+Filter Characters from a Reference StringProblem Statement: 
+You are given a target string and a reference string. 
+Remove all characters from the target string that exist inside the reference string.
+Example: target = "deloitte", reference = "lot" → Output: "deie".
+"""
+
+def filterString(string_1,target):
+    seen = set(string_1)
+    filterstr = []
+    for ch in target:
+        if ch not in seen:
+            filterstr.append(ch)
+    return "".join(filterstr)
+
+string_2 = input()
+target = input()
+print(filterString(string_2,target))
