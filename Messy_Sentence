@@ -1,0 +1,10 @@
+def messy_sentence(s1):
+    s1 = s1.replace(""," ").lower()
+    count = 0
+    for i in s1:
+        if not i.isalpha() and i != " ":
+            count+=1
+    return count
+
+s1 = input()
+print(messy_sentence(s1))
